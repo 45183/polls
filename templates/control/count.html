@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>forloop 예제</title>
+    <link rel="stylesheet" href="{% static 'poll/style.css' %}">
+</head>
+<body>
+    <div id="container">
+        <section>
+            <h1>forloop 예제</h1>
+            {% if items %}
+            <ul>
+                {% for item in items %}
+                <li>{{ forloop.counter }} - {{ item }}</li>
+<!--                {{ forloop.counter0 }} : 0번부터 카운트 -->
+                {% endfor %}
+            </ul>
+
+             <ul>
+                {% for item in items %}
+                    {% if forloop.counter < 3 %}
+                    <li>{{ forloop.counter }}번째 줄입니다.</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </section>
+    </div>
+</body>
+</html>
